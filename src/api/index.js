@@ -1,11 +1,11 @@
 import axios from "axios";
 
-export const getPlacesData = async (sw, ne) => {
+export const getPlacesData = async (type, sw, ne) => {
   try {
     const {
       data: { data },
     } = await axios.get(
-      "https://travel-advisor.p.rapidapi.com/restaurants/list-in-boundary",
+      `https://travel-advisor.p.rapidapi.com/${type}/list-in-boundary`,
       {
         headers: {
           "x-rapidapi-host": "travel-advisor.p.rapidapi.com",

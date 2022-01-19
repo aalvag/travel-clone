@@ -12,14 +12,18 @@ import {
 import PlaceDetails from "../PlaceDetails";
 import useStyles from "./styles.js";
 
-const List = ({ places, childClicked, isLoading }) => {
+const List = ({
+  places,
+  childClicked,
+  isLoading,
+  setType,
+  type,
+  setRating,
+  rating,
+}) => {
   const classes = useStyles();
 
-  const [type, setType] = React.useState("");
-  const [rating, setRating] = React.useState("");
   const [elRefs, setElRefs] = React.useState([]);
-
-  console.log({ childClicked });
 
   React.useEffect(() => {
     setElRefs((refs) =>
@@ -45,7 +49,7 @@ const List = ({ places, childClicked, isLoading }) => {
             <Select value={type} onChange={(e) => setType(e.target.value)}>
               <MenuItem value="restaurants">Restaurants</MenuItem>
               <MenuItem value="hotels">Hotels</MenuItem>
-              <MenuItem value="restaurants">Atraccions</MenuItem>
+              <MenuItem value="attractions">Attractions</MenuItem>
             </Select>
           </FormControl>
           <FormControl className={classes.formControl}>
